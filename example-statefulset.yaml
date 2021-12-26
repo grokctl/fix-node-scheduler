@@ -19,6 +19,6 @@ spec:
             - name: web
               containerPort: 80
               protocol: TCP
-      schedulerName: grokctl-scheduler
+      schedulerName: fix-node-scheduler
   serviceName: nginx
   podManagementPolicy: Parallel

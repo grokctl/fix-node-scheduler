@@ -1,4 +1,4 @@
-module github.com/harpreetkaurvaya/grokctl-scheduler
+module github.com/grokctl/fix-node-scheduler
 
 go 1.16
 

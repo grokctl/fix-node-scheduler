@@ -1,10 +1,10 @@
-# grokctl-scheduler
+# fix-node-scheduler
 
 ### Installation
 
-I already upload docker image to docker.io. You can check [here](https://hub.docker.com/repository/docker/harpreetkaurvaya/grokctl-scheduler).
+I already upload docker image to docker.io. You can check [here](https://hub.docker.com/repository/docker/grokctl/fix-node-scheduler).
 ```bash
-kubectl apply -f grokctl-scheduler-resources.yaml
+kubectl apply -f grokctl-fix-node-scheduler-resources.yaml
 ```
 
 ### Configure nodes
@@ -17,7 +17,7 @@ kubectl label node your_other_nodename web-1=true
 
 ### Install statefulset application
 
-#### You need to set schedulerName=`sfs-scheduler` because we have our scheduler now. Its name is sfs-scheduler. I already set in example statefulset resource.
+#### You need to set schedulerName=`fix-node-scheduler` because we have our scheduler now. Its name is fix-node-scheduler. I already set in example statefulset resource.
 ```bash
 kubectl apply -f example-statefulset.yaml
 ```

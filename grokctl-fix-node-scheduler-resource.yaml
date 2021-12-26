@@ -1,18 +1,18 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: grokctl-scheduler
+  name: grokctl
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: grokctl-scheduler
-  namespace: grokctl-scheduler
+  name: fix-node-scheduler
+  namespace: grokctl
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: grokctl-scheduler
+  name: fix-node-scheduler
 rules:
   - apiGroups:
       - ""
@@ -42,25 +42,25 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: grokctl-scheduler
+  name: fix-node-scheduler
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: grokctl-scheduler
+  name: fix-node-scheduler
 subjects:
   - kind: ServiceAccount
-    name: grokctl-scheduler
-    namespace: grokctl-scheduler
+    name: fix-node-scheduler
+    namespace: grokctl
 ---
 apiVersion: v1
 kind: Pod
 metadata:
-  name: grokctl-scheduler
-  namespace: grokctl-scheduler
+  name: fix-node-scheduler
+  namespace: grokctl
 spec:
   containers:
-    - name: grokctl-scheduler
-      image: harpreetkaurvaya/grokctl-scheduler:1.0
+    - name: fix-node-scheduler
+      image: grokctl/fix-node-scheduler:1.0
       imagePullPolicy: Always
-  serviceAccountName: grokctl-scheduler
-  serviceAccount: grokctl-scheduler
+  serviceAccountName: fix-node-scheduler
+  serviceAccount: fix-node-scheduler
